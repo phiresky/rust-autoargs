@@ -1,4 +1,4 @@
-use rust_autoargs::{autoargs, impl_autoargs, default};
+use autoargs::{autoargs, impl_autoargs, default};
 
 // A test struct to demonstrate method usage
 struct Calculator {

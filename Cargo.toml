@@ -1,5 +1,5 @@
 [package]
-name = "rust-autoargs"
+name = "autoargs"
 version = "0.1.0"
 edition = "2021"
 description = "A proc macro for generating argument structs with defaults"

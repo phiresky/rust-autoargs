@@ -1,4 +1,4 @@
-use rust_autoargs::{autoargs, impl_autoargs, default};
+use autoargs::{autoargs, impl_autoargs, default};
 
 // Define a simple struct with methods
 struct Canvas {

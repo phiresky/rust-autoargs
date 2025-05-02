@@ -1,4 +1,4 @@
-use rust_autoargs::{autoargs, default};
+use autoargs::{autoargs, default};
 
 // Define some example types
 struct A(String);

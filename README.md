@@ -1,4 +1,4 @@
-# rust-autoargs
+# autoargs
 
 A Rust procedural macro for generating argument structs with default values, allowing for named arguments and partial argument specification. Works with both standalone functions and struct methods.
 
@@ -15,7 +15,7 @@ When you annotate a function or method with `#[autoargs]`, the macro:
 ### Functions
 
 ```rust
-use rust_autoargs::{autoargs, default};
+use autoargs::{autoargs, default};
 
 struct A(String);
 struct B(u32);
@@ -50,7 +50,7 @@ let result = draw!(
 For methods, you need to use both `autoargs` on the methods and `impl_autoargs` on the impl block:
 
 ```rust
-use rust_autoargs::{autoargs, impl_autoargs, default};
+use autoargs::{autoargs, impl_autoargs, default};
 
 struct Canvas {
     width: u32,
@@ -222,6 +222,44 @@ macro_rules! draw_rectangle {
 - Generates proper structs and macros with correct visibility
 - Proper CamelCase naming convention for generated structs
 
+## Advanced Usage
+
+### Creating Custom Arg Structs
+
+You can create a custom args struct and pass it directly:
+
+```rust
+let custom_args = DrawArgs {
+    a: custom_a,
+    b: DrawArgs::default().b,  // Use default for b
+    c: custom_c,
+};
+
+// Pass the args struct directly
+let result = draw!(custom_args);
+```
+
+### Using Default Trait
+
+If a parameter doesn't have a `#[default = "..."]` attribute, it will use the type's `Default` implementation:
+
+```rust
+#[autoargs]
+fn simple(
+    // Uses String::default()
+    name: String,
+    // Uses Option::<i32>::default()
+    value: Option<i32>,
+) { /* ... */ }
+```
+
+### Best Practices
+
+1. Always use specific types for your parameters that implement the required traits
+2. Provide meaningful default values for each parameter
+3. Break complex functions into smaller functions with clear argument sets
+4. Use descriptive parameter names
+
 ## Implementation Notes
 
 Due to Rust's limitations that prevent macro definitions within impl blocks, a two-part approach is used for methods:
@@ -236,10 +274,10 @@ Important: When using the library, make sure to import all the necessary compone
 
 ```rust
 // For functions
-use rust_autoargs::{autoargs, default};
+use autoargs::{autoargs, default};
 
 // For methods in impl blocks
-use rust_autoargs::{autoargs, impl_autoargs, default};
+use autoargs::{autoargs, impl_autoargs, default};
 ```
 
 ## Installation
@@ -248,7 +286,7 @@ Add to your Cargo.toml:
 
 ```toml
 [dependencies]
-rust-autoargs = "0.1.0"
+autoargs = "0.1.0"
 ```
 
 ## License
