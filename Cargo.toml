@@ -1,9 +1,12 @@
 [package]
 name = "autoargs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A proc macro for generating argument structs with defaults"
 license = "MIT"
+repository = "https://github.com/phiresky/rust-autoargs"
+homepage = "https://github.com/phiresky/rust-autoargs"
+documentation = "https://github.com/phiresky/rust-autoargs"
 
 [lib]
 proc-macro = true
