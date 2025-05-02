@@ -1,0 +1,14 @@
+[package]
+name = "rust-autoargs"
+version = "0.1.0"
+edition = "2021"
+description = "A proc macro for generating argument structs with defaults"
+license = "MIT"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full", "extra-traits"] }
