@@ -1,4 +1,4 @@
-use rust_autoargs::autoargs;
+use rust_autoargs::{autoargs, default};
 
 #[derive(Debug, PartialEq)]
 struct Point {
