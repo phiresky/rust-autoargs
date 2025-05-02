@@ -254,3 +254,7 @@ rust-autoargs = "0.1.0"
 ## License
 
 MIT
+
+## Disclaimer
+
+This crate was 100% vibe coded.
