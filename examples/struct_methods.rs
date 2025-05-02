@@ -1,4 +1,4 @@
-use rust_autoargs::{autoargs, method_macro, default};
+use rust_autoargs::{autoargs, impl_autoargs, default};
 
 // Define a simple struct with methods
 struct Canvas {
@@ -8,7 +8,7 @@ struct Canvas {
 }
 
 // First, generate the method macros
-#[method_macro]
+#[impl_autoargs]
 impl Canvas {
     fn new(name: &str, width: u32, height: u32) -> Self {
         Self {
@@ -59,7 +59,7 @@ struct Shape {
     name: String,
 }
 
-#[method_macro]
+#[impl_autoargs]
 impl Shape {
     fn new(name: &str) -> Self {
         Self { name: name.to_string() }

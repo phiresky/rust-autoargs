@@ -133,9 +133,9 @@ pub fn autoargs(_attr: TokenStream, item: TokenStream) -> TokenStream {
     TokenStream::from(expanded)
 }
 
-/// Companion attribute macro for creating method macros
+/// Companion attribute macro for implementing autoargs on methods
 #[proc_macro_attribute]
-pub fn method_macro(_attr: TokenStream, item: TokenStream) -> TokenStream {
+pub fn impl_autoargs(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let input = parse_macro_input!(item as syn::ItemImpl);
     
     let _self_ty = &input.self_ty;  // not used currently but might be useful in future

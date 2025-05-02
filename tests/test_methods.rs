@@ -1,4 +1,4 @@
-use rust_autoargs::{autoargs, method_macro, default};
+use rust_autoargs::{autoargs, impl_autoargs, default};
 
 // A test struct to demonstrate method usage
 struct Calculator {
@@ -12,7 +12,7 @@ impl Calculator {
 }
 
 // Generate the method macros for Calculator
-#[method_macro]
+#[impl_autoargs]
 impl Calculator {
     #[autoargs]
     fn add(
@@ -88,7 +88,7 @@ impl SelfTester {
 }
 
 // Generate method macros for SelfTester
-#[method_macro]
+#[impl_autoargs]
 impl SelfTester {
     #[autoargs]
     fn ref_method(
